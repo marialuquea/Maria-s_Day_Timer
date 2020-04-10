@@ -19,7 +19,8 @@
     var count = 0
 
     function countdown_trigger() {
-        if (countdown_exercise > 0) {
+      console.log("1, count: ", count);
+        if (countdown_exercise > 0 && count === 0) {
             countdown_exercise--;
             document.getElementById('countdown_text').innerHTML = countdown_exercise;
             if (countdown_exercise > 0) { countdown = setTimeout(countdown_trigger, 1000); }
@@ -30,7 +31,7 @@
               done = true;
             }
           }
-          if (countdown_rest > 0 && done === true) {
+          if (countdown_rest > 0 && done === true && count === 0) {
               countdown_rest--;
               document.getElementById('descanso').innerHTML = countdown_rest;
               if (countdown_rest > 0) { countdown2 = setTimeout(countdown_trigger, 1000); }
@@ -40,8 +41,34 @@
                 document.getElementById('descanso').innerHTML = 'Descanso';
                 done = false;
                 count++;
+                countdown_exercise = 6;
+                countdown_rest = 4;
               }
             }
+            console.log("2, count: ", count);
+            if (countdown_exercise > 0 && count === 1) {
+                countdown_exercise--;
+                document.getElementById('countdown_text').innerHTML = countdown_exercise;
+                if (countdown_exercise > 0) { countdown = setTimeout(countdown_trigger, 1000); }
+                if (countdown_exercise === 0) {
+                  audio.play();
+                  console.log("termina ejercicio");
+                  document.getElementById('countdown_text').innerHTML = 'Ejercicio';
+                  done = true;
+                }
+              }
+              if (countdown_rest > 0 && done === true && count === 1) {
+                  countdown_rest--;
+                  document.getElementById('descanso').innerHTML = countdown_rest;
+                  if (countdown_rest > 0) { countdown2 = setTimeout(countdown_trigger, 1000); }
+                  if (countdown_rest === 0) {
+                    audio.play();
+                    console.log("termina descanso");
+                    document.getElementById('descanso').innerHTML = 'Descanso';
+                    done = false;
+                    count++;
+                  }
+                }
     }
 
     function countdown_clear() {
