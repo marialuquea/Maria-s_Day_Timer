@@ -169,6 +169,9 @@ function countdown_trigger() {
 function countdown_clear() {
   clearTimeout(countdown);
   clearTimeout(countdown2);
+  document.getElementById('countdown_text').innerHTML = 'Ejercicio';
+  document.getElementById('descanso').innerHTML = 'Descanso';
+
 }
 
 function countdown_init() {
