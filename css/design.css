@@ -19,8 +19,6 @@ body{
 .item1 {
   grid-column-start: 1;
   grid-column-end: 3;
-  border: solid 3px white;
-  background-color: #DBABBE;
   border-radius: 34px;
   margin: 40px 400px;
 
