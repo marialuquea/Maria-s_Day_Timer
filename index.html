@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/design.css" type="text/css"/>
+    <link href='https://fonts.googleapis.com/css?family=Actor' rel='stylesheet'/>
+    <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'/>
+    <link rel='icon' href='images/favicon.ico'/>
+    <title>Maria Alarms</title>
+  </head>
+
+
+  <script type="text/javascript">
+    var countdown;
+    var countdown2;
+    var countdown_exercise;
+    var countdown_rest;
+    var audio = new Audio("sounds/alarm.mp3");
+    var done = false;
+    var count = 0
+
+    function countdown_trigger() {
+        if (countdown_exercise > 0) {
+            countdown_exercise--;
+            document.getElementById('countdown_text').innerHTML = countdown_exercise;
+            if (countdown_exercise > 0) { countdown = setTimeout(countdown_trigger, 1000); }
+            if (countdown_exercise === 0) {
+              audio.play();
+              console.log("termina ejercicio");
+              document.getElementById('countdown_text').innerHTML = 'Ejercicio';
+              done = true;
+            }
+          }
+          if (countdown_rest > 0 && done === true) {
+              countdown_rest--;
+              document.getElementById('descanso').innerHTML = countdown_rest;
+              if (countdown_rest > 0) { countdown2 = setTimeout(countdown_trigger, 1000); }
+              if (countdown_rest === 0) {
+                audio.play();
+                console.log("termina descanso");
+                document.getElementById('descanso').innerHTML = 'Descanso';
+                done = false;
+                count++;
+              }
+            }
+    }
+
+    function countdown_clear() {
+      clearTimeout(countdown);
+      clearTimeout(countdown2);
+    }
+
+    function countdown_init() {
+        countdown_exercise = 6;
+        countdown_rest = 4;
+        countdown_trigger();
+    }
+
+  </script>
+
+
+
+  <body>
+
+    <div class="grid-container">
+      <div class="item1">Maria's sounds</div>
+
+      <div class="item2" onmousedown="countdown_init()">Start</div>
+      <div class="item3" onmousedown="countdown_clear()">Pause</div>
+      <div class="item4" id="countdown_text">Ejercicio</div>
+      <div class="item5" id="descanso">Descanso</div>
+
+
+    </div>
+
+  </body>
+</html>
