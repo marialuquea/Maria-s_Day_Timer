@@ -30,7 +30,7 @@
           document.getElementById('countdown_text').innerHTML = countdown_exercise;
           if (countdown_exercise > 0) { countdown = setTimeout(countdown_trigger, 1000); }
           if (countdown_exercise === 0) {
-            audio.play();
+            ayy.play();
             console.log("termina ejercicio");
             document.getElementById('countdown_text').innerHTML = 'Ejercicio';
             done = true;
@@ -41,7 +41,7 @@
           document.getElementById('descanso').innerHTML = countdown_rest;
           if (countdown_rest > 0) { countdown2 = setTimeout(countdown_trigger, 1000); }
           if (countdown_rest === 0) {
-            audio.play();
+            ayy.play();
             console.log("termina descanso");
             document.getElementById('descanso').innerHTML = 'Descanso';
             done = false;
@@ -206,7 +206,7 @@
     <div class="grid-container">
       <div class="item1">Maria's Timer</div>
 
-      <div class="item2" onmousedown="ayy.play()">Start</div>
+      <div class="item2" onmousedown="countdown_init()">Start</div>
       <div class="item3" onmousedown="audio.play()">Stop</div>
       <div class="item4" id="countdown_text">Ejercicio</div>
       <div class="item5" id="descanso">Descanso</div>
