@@ -11,6 +11,8 @@
   <script type="text/javascript">
   var countdown;
   var countdown2;
+  var countdown_ex_initial;
+  var countdown_rest_initial;
   var countdown_exercise;
   var countdown_rest;
   var audio = new Audio();
@@ -43,8 +45,8 @@
             document.getElementById('descanso').innerHTML = 'Descanso';
             done = false;
             count++;
-            countdown_exercise = 6;
-            countdown_rest = 4;
+            countdown_exercise = countdown_ex_initial;
+            countdown_rest = countdown_rest_initial;
           }
         }
 
@@ -70,8 +72,8 @@
               document.getElementById('descanso').innerHTML = 'Descanso';
               done = false;
               count++;
-              countdown_exercise = 6;
-              countdown_rest = 4;
+              countdown_exercise = countdown_ex_initial;
+              countdown_rest = countdown_rest_initial;
             }
           }
 
@@ -97,8 +99,8 @@
               document.getElementById('descanso').innerHTML = 'Descanso';
               done = false;
               count++;
-              countdown_exercise = 6;
-              countdown_rest = 4;
+              countdown_exercise = countdown_ex_initial;
+              countdown_rest = countdown_rest_initial;
             }
           }
 
@@ -124,8 +126,8 @@
               document.getElementById('descanso').innerHTML = 'Descanso';
               done = false;
               count++;
-              countdown_exercise = 6;
-              countdown_rest = 4;
+              countdown_exercise = countdown_ex_initial;
+              countdown_rest = countdown_rest_initial;
             }
           }
 
@@ -150,8 +152,8 @@
               document.getElementById('descanso').innerHTML = 'Descanso';
               done = false;
               count++;
-              countdown_exercise = 6;
-              countdown_rest = 4;
+              countdown_exercise = countdown_ex_initial;
+              countdown_rest = countdown_rest_initial;
             }
           }
         if (countdown_exercise > 0 && count === 5) {
@@ -175,8 +177,8 @@
               document.getElementById('descanso').innerHTML = 'Descanso';
               done = false;
               count++;
-              countdown_exercise = 6;
-              countdown_rest = 4;
+              countdown_exercise = countdown_ex_initial;
+              countdown_rest = countdown_rest_initial;
             }
           }
 
@@ -191,8 +193,10 @@
   }
 
   function countdown_init() {
-      countdown_exercise = 11;
-      countdown_rest = 6;
+      countdown_ex_initial = document.getElementById('ex_amount').value;
+      countdown_rest_initial = document.getElementById('rest_amount').value;
+      countdown_exercise = countdown_ex_initial;
+      countdown_rest = countdown_rest_initial;
       countdown_trigger();
   }
 
@@ -203,13 +207,24 @@
     <div class="grid-container">
       <div class="item1" onmousedown="audio.play()">Maria's Timer</div>
 
+      <div class="item6">
+            <label>Tiempo de ejercicio</label> <br>
+            <input type="text" id="ex_amount">
+      </div>
+
+      <div class="item7">
+            <label>Tiempo de descanso</label> <br>
+            <input type="text" id="rest_amount">
+      </div>
+
       <div class="item2" onmousedown="countdown_init()">Start</div>
       <div class="item3" onmousedown="countdown_clear()">Stop</div>
       <div class="item4" id="countdown_text">Ejercicio</div>
       <div class="item5" id="descanso">Descanso</div>
 
-
     </div>
+
+
 
   </body>
 </html>

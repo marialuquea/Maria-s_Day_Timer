@@ -1,7 +1,7 @@
 .grid-container {
   display: grid;
   grid-template-columns: auto auto;
-  grid-template-rows: 150px 200px 200px;
+  grid-template-rows: 150px 200px 200px 200px;
   padding: 10px;
 }
 
@@ -32,7 +32,24 @@ body{
   box-shadow: 10px 5px #f9f9f6;
 }
 
+.item6, .item7 {
+  border: solid 1px white;
+  border-radius: 55px;
+  margin: 30px;
+  box-shadow: 10px 5px #f9f9f6;
+}
+
 .item2 { background-color: #E8AEB7;}
 .item3 { background-color: #DEEAE6;}
 .item4 { background-color: #FEDCD2;}
 .item5 { background-color: #AFD0D6;}
+.item6 { background-color: #DBABBE;}
+.item7 { background-color: #DBABBE; }
+
+input {
+  border-radius: 20px;
+  height: 50px;
+  width: 80px;
+  text-align: center;
+  margin-bottom: 20px;
+}
